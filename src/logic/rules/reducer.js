@@ -1,28 +1,23 @@
 import * as CONSTANTS from './constants';
+import * as configuration from './configuration';
+import _ from 'lodash';
 
 export const initialState = {
-    title: "rock-paper-scissors",
-    ruleset: {
-      rock: ['scissors'],
-      paper: ['rock'],
-      scissors: ['paper']
-    }
+    title: CONSTANTS.ROCK_PAPER_SCISSORS,
+    ruleset: configuration.rock_paper_scissors
 };
 
 const rules = (state = initialState, action) => {
-  switch (action.type) {
+  
+  const actionType = _.get(action, 'type', undefined);
+
+  switch (actionType) {
     // Really long, I know - I'm not a fan of acryonym variable names :)
     case CONSTANTS.ROCK_PAPER_SCISSORS_LIZARD_SPOCK:
       return {
         ...state,
-        title: "rock-paper-scissors",
-        ruleset: {
-          rock: ['scissors','lizard'],
-          paper: ['rock','spock'],
-          scissors: ['paper','lizard'],
-          lizard: ['spock', 'paper'],
-          spock: ['rock', 'scissors']
-        }
+        title: CONSTANTS.ROCK_PAPER_SCISSORS_LIZARD_SPOCK,
+        ruleset: configuration.rock_paper_scissors_lizard_spock
       };
 
     default:

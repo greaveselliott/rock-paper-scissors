@@ -1,4 +1,4 @@
-import reducer, { initialState } from '../reducer';
+import reducer, { initialState } from './reducer';
 
 describe('Game play reducer', () => {
 
