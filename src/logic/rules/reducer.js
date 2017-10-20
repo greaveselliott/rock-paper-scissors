@@ -8,10 +8,8 @@ export const initialState = {
 };
 
 const rules = (state = initialState, action) => {
-  
-  const actionType = _.get(action, 'type', undefined);
 
-  switch (actionType) {
+  switch (_.get(action, 'type', undefined)) {
     // Really long, I know - I'm not a fan of acryonym variable names :)
     case CONSTANTS.ROCK_PAPER_SCISSORS_LIZARD_SPOCK:
       return {
