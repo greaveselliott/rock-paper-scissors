@@ -1,0 +1,1 @@
+export const ROCK_PAPER_SCISSORS_LIZARD_SPOCK = 'Rock, paper, scissors, lizard, spock';
