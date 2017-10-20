@@ -1,5 +1,4 @@
 import reducer, { initialState } from '../reducer';
-import { addItem } from '../actions';
 
 describe('reducer', () => {
   it('Should display the option to be a human player or a computer player.', () => {
