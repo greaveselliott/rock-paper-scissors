@@ -1,31 +1,57 @@
 import reducer, { initialState } from '../reducer';
 import { addItem } from '../actions';
 
-describe('reducer', () => {
-  it('should return state for unknown action', () => {
-    const mockState = { test: 'testItem' };
-    const mockAction = { type: 'mystery-meat' };
-    const result = reducer(mockState, mockAction);
-    expect(result).toEqual(mockState);
+describe('Rock paper scissors rules reducer', () => {
+
+  it('Rock should crush Scissors.', () => {
+    
   });
 
-  it('should use initial state if state not provided', () => {
-    const mockAction = { type: 'mystery-meat' };
-    const result = reducer(undefined, mockAction);
-    expect(result).toEqual(initialState);
+  it('Paper should cover Rock.', () => {
+
   });
 
-  it('should add new items on ADD_ITEM', () => {
-    const state = {
-      items: [
-        { id: 1, content: 'first' },
-        { id: 2, content: 'second' },
-      ]
-    }
-    const mockAction = addItem('third');
-    const result = reducer(state, mockAction);
-    expect(result.items).toHaveLength(3);
-    expect(result.items[2].id).toEqual(3);
-    expect(result.items[2].content).toEqual('third');
+  it('Scissors should cut Paper.', () => {
+    
+  });
+});
+
+
+describe('Rock paper scissors lizard spock rules reducer', () => {
+  
+  it('Rock should crush Scissors.', () => {
+    
+  });
+
+  it('Rock should crush Lizard.', () => {
+    
+  });
+
+  it('Paper should cover Rock.', () => {
+
+  });
+
+  it('Paper should disprove Spock.', () => {
+    
+  });
+
+  it('Scissors should cut Paper.', () => {
+    
+  });
+
+  it('Scissors should decapitate Lizard.', () => {
+    
+  });
+
+  it('Lizard should poison Spock.', () => {
+    
+  });
+  
+  it('Spock should smash Scissors.', () => {
+    
+  });
+  
+  it('Spock should vaporize Rock.', () => {
+      
   });
 });

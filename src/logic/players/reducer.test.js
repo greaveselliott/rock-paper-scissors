@@ -2,30 +2,23 @@ import reducer, { initialState } from '../reducer';
 import { addItem } from '../actions';
 
 describe('reducer', () => {
-  it('should return state for unknown action', () => {
-    const mockState = { test: 'testItem' };
-    const mockAction = { type: 'mystery-meat' };
-    const result = reducer(mockState, mockAction);
-    expect(result).toEqual(mockState);
+  it('Should display the option to be a human player or a computer player.', () => {
+    
   });
 
-  it('should use initial state if state not provided', () => {
-    const mockAction = { type: 'mystery-meat' };
-    const result = reducer(undefined, mockAction);
-    expect(result).toEqual(initialState);
+  it('Should setup a new game with one human and one computer player.', () => {
+
   });
 
-  it('should add new items on ADD_ITEM', () => {
-    const state = {
-      items: [
-        { id: 1, content: 'first' },
-        { id: 2, content: 'second' },
-      ]
-    }
-    const mockAction = addItem('third');
-    const result = reducer(state, mockAction);
-    expect(result.items).toHaveLength(3);
-    expect(result.items[2].id).toEqual(3);
-    expect(result.items[2].content).toEqual('third');
+  it('Should setup a new game with two computer players.', () => {
+
+  });
+
+  it('Should setup a new game with both players score set to zero.', () => {
+    
+  });
+  
+  it('Should save the players score if a consecutive game is played.', () => {
+    
   });
 });

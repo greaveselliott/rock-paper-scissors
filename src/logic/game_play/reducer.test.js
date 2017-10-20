@@ -1,31 +1,56 @@
 import reducer, { initialState } from '../reducer';
-import { addItem } from '../actions';
 
-describe('reducer', () => {
-  it('should return state for unknown action', () => {
-    const mockState = { test: 'testItem' };
-    const mockAction = { type: 'mystery-meat' };
-    const result = reducer(mockState, mockAction);
-    expect(result).toEqual(mockState);
+describe('Game play reducer', () => {
+
+  it('Should display start screen.', () => {
+    
+  });
+  
+  it('Should display available hand signal options to human player.', () => {
+
+  });
+  
+  it('Should select hand signal option from available options.', () => {
+
   });
 
-  it('should use initial state if state not provided', () => {
-    const mockAction = { type: 'mystery-meat' };
-    const result = reducer(undefined, mockAction);
-    expect(result).toEqual(initialState);
+  it('If player one is a computer, should select a hand signal when the game starts.', () => {
+    
   });
 
-  it('should add new items on ADD_ITEM', () => {
-    const state = {
-      items: [
-        { id: 1, content: 'first' },
-        { id: 2, content: 'second' },
-      ]
-    }
-    const mockAction = addItem('third');
-    const result = reducer(state, mockAction);
-    expect(result.items).toHaveLength(3);
-    expect(result.items[2].id).toEqual(3);
-    expect(result.items[2].content).toEqual('third');
+  it('Player two should select a hand signal when the game starts.', () => {
+    
+  });
+
+  it('Should remember players ones previously selected hand signals.', () => {
+    
+  });
+
+  it('Should remember players twos previously selected hand signals.', () => {
+    
+  });
+
+  it('Should reveal both players chosen hand signals if both players have picked their signal.', () => {
+    
+  });
+
+  it('Should decide who wins the game.', () => {
+    
+  });
+
+  it('Should declare a winner.', () => {
+    
+  });
+
+  it('Should increment winning players score.', () => {
+
+  });
+
+  it('Should display the reset button if a game has been completed.', () => {
+    
+  });
+
+  it('Should restart the game if the reset button has been clicked.', () => {
+    
   });
 });
