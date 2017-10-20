@@ -12,15 +12,11 @@ export const display_signal_options = () => {
     }
 };
 
-export const select_signal_option = () => {
+export const select_signal_option = (player, selected_symbol) => {
     return {
-        type: CONSTANTS.SELECT_SIGNAL_OPTION
-    }
-};
-
-export const computer_select_signal_option = () => {
-    return {
-        type: CONSTANTS.COMPUTER_SELECT_SIGNAL_OPTION
+        type: CONSTANTS.SELECT_SIGNAL_OPTION,
+        player,
+        selected_symbol
     }
 };
 
