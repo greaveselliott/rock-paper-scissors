@@ -8,13 +8,6 @@ describe(`Calculation for ${CONSTANTS.ROCK_PAPER_SCISSORS}`, () => {
 
     const data_drive_calculation = [
         {
-            description: 'Using default calcuation configuration, Player Rock should win against opponents Scissors.', 
-            configuration: undefined,
-            player_symbol: 'rock',
-            opponent_symbol: 'scissors',
-            expect: CONSTANTS.OUTCOME_WIN
-        },
-        {
             description: 'Player Rock should win against opponents Scissors.', 
             configuration: rock_paper_scissors,
             player_symbol: 'rock',
