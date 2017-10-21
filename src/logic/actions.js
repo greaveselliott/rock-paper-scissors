@@ -51,16 +51,9 @@ export const restart_game = () => {
     }
 };
 
-export const remember_opponents_selection = () => {
+export const decide_winner = () => {
     return {
-        type: CONSTANTS.REMEMBER_opponentS_SELECTION
-    }
-};
-
-export const decide_winner = (configuration) => {
-    return {
-        type: CONSTANTS.DECIDE_WINNER,
-        configuration
+        type: CONSTANTS.DECIDE_WINNER
     }
 };
 

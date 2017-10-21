@@ -1,10 +1,10 @@
 import * as CONSTANTS from './constants';
 import _ from 'lodash';
 import calculation from './calculation';
-import configuration from './configuration';
+import * as configuration from './configuration';
+import { get_random_symbol } from './computer';
 
 export const initialState = {
-    title: CONSTANTS.ROCK_PAPER_SCISSORS,
     ruleset: configuration.rock_paper_scissors,
     player: {
       score: 0,
@@ -27,8 +27,7 @@ const game_play = (state = initialState, action) => {
   switch (_.get(action, 'type', undefined)) {
 
     case CONSTANTS.ROCK_PAPER_SCISSORS_LIZARD_SPOCK:
-    return Object.assign({}, state,{
-      title: CONSTANTS.ROCK_PAPER_SCISSORS_LIZARD_SPOCK,
+    return _.merge(state,{
       ruleset: configuration.rock_paper_scissors_lizard_spock
     });
 
@@ -50,18 +49,14 @@ const game_play = (state = initialState, action) => {
       });
 
     case CONSTANTS.SELECT_SIGNAL_OPTION:
-      const symbol = action.player.is_human ? action.selected_symbol : _.sample(configuration);
-
       return _.merge(state,{
         [action.player]: {
-          selected_symbol: action.selected_symbol
+          selected_symbol: action.player.is_human ? action.selected_symbol : get_random_symbol(state.ruleset)     
         }
       });
-    
-      
 
     case CONSTANTS.REVEAL_SELECTED_SIGNAL_OPTIONS:
-      return Object.assign({}, state,{
+      return _.merge(state,{
         reveal_selected_signal_options: true
       });
       
@@ -79,7 +74,7 @@ const game_play = (state = initialState, action) => {
     case CONSTANTS.DECIDE_WINNER:
       let player_symbol = state.player.selected_symbol;
       let opponent_symbol = state.opponent.selected_symbol;
-      let outcome = calculation(player_symbol, opponent_symbol, );
+      let outcome = calculation(player_symbol, opponent_symbol, state.ruleset);
       
       return _.merge(state,{
         outcome

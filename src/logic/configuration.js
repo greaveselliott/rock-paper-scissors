@@ -11,5 +11,3 @@ export const rock_paper_scissors_lizard_spock = {
     lizard: ['spock', 'paper'],
     spock: ['rock', 'scissors']
 };
-
-export default rock_paper_scissors;
