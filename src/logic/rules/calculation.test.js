@@ -8,6 +8,13 @@ describe(`Calculation for ${CONSTANTS.ROCK_PAPER_SCISSORS}`, () => {
 
     const data_drive_calculation = [
         {
+            description: 'Using default calcuation configuration, Player Rock should win against Oponents Scissors.', 
+            configuration: undefined,
+            player_symbol: 'rock',
+            oponent_symbol: 'scissors',
+            expect: CONSTANTS.OUTCOME_WIN
+        },
+        {
             description: 'Player Rock should win against Oponents Scissors.', 
             configuration: rock_paper_scissors,
             player_symbol: 'rock',
@@ -37,7 +44,7 @@ describe(`Calculation for ${CONSTANTS.ROCK_PAPER_SCISSORS}`, () => {
             const oponent_symbol = unit_test.oponent_symbol;
             
             // Act
-            let outcome = calculation(player_symbol, oponent_symbol, rock_paper_scissors);
+            let outcome = calculation(player_symbol, oponent_symbol, unit_test.configuration);
 
             // Assert
             expect(outcome).toEqual(unit_test.expect);
