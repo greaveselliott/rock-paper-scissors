@@ -16,8 +16,11 @@
     "redux-devtools": "3.4.0"
   },
   "devDependencies": {
+    "node-sass": "^4.5.3",
     "react-scripts": "1.0.13",
-    "redux-devtools-dispatch": "^2.2.1"
+    "redux-devtools-dispatch": "^2.2.1",
+    "sass-loader": "^6.0.6",
+    "webpack": "^3.8.1"
   },
   "scripts": {
     "start": "react-scripts start",
