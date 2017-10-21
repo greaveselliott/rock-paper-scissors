@@ -1,21 +1,21 @@
 import * as CONSTANTS from './constants';
 import _ from 'lodash';
+import calculation from '../rules/calculation';
 
 export const initialState = {
-    players: {
-      player_one: {
-        score: 0,
-        isHuman: true,
-        selected_symbol: undefined,
-      },
-      player_two: {
-        score: 0,
-        is_human: false,
-        selected_symbol: undefined,
-      }
+    player: {
+      score: 0,
+      isHuman: true,
+      selected_symbol: undefined,
+    },
+    oponent: {
+      score: 0,
+      is_human: false,
+      selected_symbol: undefined,
     },
     game_started: false,
     game_complete: false,
+    game_outcome: undefined,
     display_siganl_options: false,
     reveal_selected_signal_options: false
 };
@@ -61,16 +61,28 @@ const game_play = (state = initialState, action) => {
     }
 
     case CONSTANTS.DECIDE_WINNER:
-      let player_one_symbol = state.player_one.selected_symbol;
-      let player_two_symbol = state.player_two.selected_symbol;
-
-
-
+      let player_symbol = state.player.selected_symbol;
+      let oponent_symbol = state.oponent.selected_symbol;
+      let outcome = calculation(player_symbol, oponent_symbol);
+      
       return {
-        
+        ...state,
+        outcome
       }
+    
     case CONSTANTS.COMPLETE_GAME:
+      return {
+        ...state,
+        complete: true
+      }
+    
     case CONSTANTS.INCREMENT_PLAYER_SCORE:
+      return {
+        ...state,
+        [action.player]: {
+          score: state[action.player].score + 1
+        }
+      }
 
     default:
       return state;
