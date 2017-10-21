@@ -1,14 +1,17 @@
 import * as CONSTANTS from './constants';
 import _ from 'lodash';
-import calculation from '../rules/calculation';
+import calculation from './calculation';
+import configuration from './configuration';
 
 export const initialState = {
+    title: CONSTANTS.ROCK_PAPER_SCISSORS,
+    ruleset: configuration.rock_paper_scissors,
     player: {
       score: 0,
       isHuman: true,
       selected_symbol: undefined,
     },
-    oponent: {
+    opponent: {
       score: 0,
       is_human: false,
       selected_symbol: undefined,
@@ -23,66 +26,76 @@ export const initialState = {
 const game_play = (state = initialState, action) => {
   switch (_.get(action, 'type', undefined)) {
 
+    case CONSTANTS.ROCK_PAPER_SCISSORS_LIZARD_SPOCK:
+    return Object.assign({}, state,{
+      title: CONSTANTS.ROCK_PAPER_SCISSORS_LIZARD_SPOCK,
+      ruleset: configuration.rock_paper_scissors_lizard_spock
+    });
+
     case CONSTANTS.DISPLAY_START_SCREEN:
-      return {
-        ...state,
+      return _.merge(state,{
         game_started: true
-      }
+      });
+
+    case CONSTANTS.COMPUTER_OR_HUMAN_PLAYER:
+      return _.merge(state,{
+        player: {
+          is_human: action.is_human
+        }
+      });
 
     case CONSTANTS.DISPLAY_SIGNAL_OPTIONS:
-      return {
-        ...state,
-        display_siganl_options: true,
-      }
+      return _.merge(state,{
+        display_siganl_options: true 
+      });
 
     case CONSTANTS.SELECT_SIGNAL_OPTION:
-      return {
-        ...state,
+      const symbol = action.player.is_human ? action.selected_symbol : _.sample(configuration);
+
+      return _.merge(state,{
         [action.player]: {
           selected_symbol: action.selected_symbol
         }
-      }
+      });
     
+      
+
     case CONSTANTS.REVEAL_SELECTED_SIGNAL_OPTIONS:
-      return {
-        ...state,
+      return Object.assign({}, state,{
         reveal_selected_signal_options: true
-      }
+      });
       
     case CONSTANTS.START_GAME:
-      return {
-        ...state,
+      return _.merge(state,{
         start_game: true
-      }
+      });
+    
     case CONSTANTS.RESTART_GAME: {
-      return {
+      return _.merge(state,{
         ...initialState
-      }
+      });
     }
 
     case CONSTANTS.DECIDE_WINNER:
       let player_symbol = state.player.selected_symbol;
-      let oponent_symbol = state.oponent.selected_symbol;
-      let outcome = calculation(player_symbol, oponent_symbol);
+      let opponent_symbol = state.opponent.selected_symbol;
+      let outcome = calculation(player_symbol, opponent_symbol, );
       
-      return {
-        ...state,
+      return _.merge(state,{
         outcome
-      }
+      });
     
     case CONSTANTS.COMPLETE_GAME:
-      return {
-        ...state,
+      return _.merge(state,{
         complete: true
-      }
+      });
     
     case CONSTANTS.INCREMENT_PLAYER_SCORE:
-      return {
-        ...state,
+      return _.merge(state,{
         [action.player]: {
           score: state[action.player].score + 1
         }
-      }
+      });
 
     default:
       return state;

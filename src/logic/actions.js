@@ -1,8 +1,21 @@
 import * as CONSTANTS from './constants';
 
+export const rock_paper_scissors_lizard_spock = () => {
+    return {
+        type: CONSTANTS.ROCK_PAPER_SCISSORS_LIZARD_SPOCK
+    }
+}
+
 export const display_start_screen = () => {
     return {
         type: CONSTANTS.DISPLAY_START_SCREEN
+    }
+};
+
+export const computer_or_human_player = (is_human) => {
+    return {
+        type: CONSTANTS.COMPUTER_OR_HUMAN_PLAYER,
+        is_human
     }
 };
 
@@ -38,15 +51,16 @@ export const restart_game = () => {
     }
 };
 
-export const remember_oponents_selection = () => {
+export const remember_opponents_selection = () => {
     return {
-        type: CONSTANTS.REMEMBER_OPONENTS_SELECTION
+        type: CONSTANTS.REMEMBER_opponentS_SELECTION
     }
 };
 
-export const decide_winner = () => {
+export const decide_winner = (configuration) => {
     return {
-        type: CONSTANTS.DECIDE_WINNER
+        type: CONSTANTS.DECIDE_WINNER,
+        configuration
     }
 };
 
