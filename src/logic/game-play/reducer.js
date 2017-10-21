@@ -6,12 +6,12 @@ export const initialState = {
       player_one: {
         score: 0,
         isHuman: true,
-        selected_symbol: undefined
+        selected_symbol: undefined,
       },
       player_two: {
-          score: 0,
-          is_human: false,
-          selected_symbol: undefined
+        score: 0,
+        is_human: false,
+        selected_symbol: undefined,
       }
     },
     game_started: false,

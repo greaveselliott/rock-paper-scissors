@@ -1,28 +1,25 @@
 import _ from 'lodash';
+import {rock_paper_scissors} from './configuration';
+import * as CONSTANTS from './constants';
 
-export class Calculation {
-    constructor (configuration, players) {
-        var result = [];
-
-        _.each(players, () => {
-            
-        })
-
+const calculation = (player_symbol, oponent_symbol, configuration = rock_paper_scissors) => {
+    let outcome = CONSTANTS.OUTCOME_DRAW;
+    
+    if (player_symbol === oponent_symbol) {
+        return outcome;
     }
 
-    hasDrawn (player_symbol, oponent_symbol) {
-        return player_symbol === oponent_symbol;
-    }
+    _.each(configuration[player_symbol], (lose_condition) => {
+        // If the oponents symbol is one of the players weeknesses, the oponent wins
+        if (lose_condition === oponent_symbol) {
+            outcome = CONSTANTS.OUTCOME_WIN;
+        } else {
+            outcome = CONSTANTS.OUTCOME_LOSE;
+            return false;
+        }
+    });
 
-    hasWon (player_symbol, oponent_symbol, configuration = configuration) {
-        result = false;
-
-        _.each(configuration[player_symbol], (condition) => {
-            if (condition === player_two_symbol) {
-                result = true;
-            }
-        });
-
-        return result
-    }
+    return outcome;
 }
+
+export default calculation;
