@@ -7,6 +7,10 @@ import * as actions from './logic/actions';
 import { ConnectedRouter } from 'react-router-redux';
 import { history } from './redux/store';
 import Avatar from './components/avatar';
+import Logo from './components/logo';
+import Heading from './components/heading';
+import ButtonToggleMode from './components/button-toggle-mode';
+import ButtonStartGame from './components/button-start-game';
 
 const store = configureStore();
 
@@ -21,6 +25,10 @@ class App extends Component {
               <Avatar/>
             </aside>
             <main className="app__main">
+              <Logo/>
+              <Heading/>
+              <ButtonToggleMode/>
+              <ButtonStartGame/>
             </main>
            {/* <Dispatcher actionCreators={actions}/>*/}
           </div>

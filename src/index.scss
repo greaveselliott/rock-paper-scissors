@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Mitr:400,700|Modak');
+
 html, 
 body,
 #root {
@@ -8,9 +10,9 @@ body {
   display: block;
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
+
 }
-ahtml, body, div, span, applet, object, iframe,
+html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
 del, dfn, em, img, ins, kbd, q, s, samp,
@@ -27,8 +29,10 @@ time, mark, audio, video {
 	padding: 0;
 	border: 0;
 	font-size: 100%;
+	font-family: 'Mitr', sans-serif;
 	font: inherit;
 	vertical-align: baseline;
+	box-sizing: border-box;
 }
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure, 

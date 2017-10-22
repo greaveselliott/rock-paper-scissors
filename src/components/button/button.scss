@@ -1,0 +1,39 @@
+.button {
+    background-color: #6FCF97;
+    border-width: 4px;
+    border-style: solid;
+    border-color: #6FCF97;
+    border-radius: 50px;
+    cursor: pointer;
+    font-family: 'Mitr', sans-serif;
+    color: white;
+    height: 40px;
+    padding-left: 25px;
+    padding-right: 25px;
+    width: 100%;
+    text-transform: uppercase;
+
+    &:hover {
+        background-color: lighten(#6FCF97, 5);
+    }
+}
+
+[class*="button"] {
+    &[class*="--white"] {
+        background-color: white;
+        border-color: white;
+        color: #2D9CDB;
+    }
+
+    &[class*="--hollow"] {
+        background-color: transparent;
+        border-color: white;
+        color: white;
+    }
+
+    &[class*="--large"] {
+        background-color: white;
+        color: #2D9CDB;
+        height: 100px;
+    }
+}
