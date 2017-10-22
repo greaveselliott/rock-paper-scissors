@@ -1,7 +1,7 @@
 
 
 
-[class*="app"] {
+.app {
   background: #2d9cdb; /* Old browsers */
   background: -moz-radial-gradient(center, ellipse cover,  #2d9cdb 0%, #5abef7 100%); /* FF3.6-15 */
   background: -webkit-radial-gradient(center, ellipse cover,  #2d9cdb 0%,#5abef7 100%); /* Chrome10-25,Safari5.1-6 */
@@ -12,26 +12,27 @@
   overflow: hidden;
   position: relative;
   width: 100%;
+  padding-left: 300px;
 
-  &[class*="--started"] {
-    padding-left: 300px;
-  }
-
-  &[class*="__sidebar"] {
-    background-color: white;
-    height: 100%;
+  &__sidebar {
     position: absolute;
     top: 0;
-    right: 100%;
+    bottom: 0;
+    left: 0;
+    background-color: white;
     width: 300px;
-
-    &[class*="--visible"] {
-      right: calc(100% - 300px);
-    }
   }
 
   &__main {
     display: block;
     height: 100%;
+    width: 100%;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
   }  
+
+  &__route {
+    height: 100%;
+  }
 }

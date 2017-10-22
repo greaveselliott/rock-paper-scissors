@@ -9,6 +9,7 @@ import { history } from './redux/store';
 import ScoreBoard from './components/score-board';
 import StartGame from './components/start-game';
 import Board from './components/board';
+import { AnimatedRoute } from 'react-router-transition';
 
 const store = configureStore();
 
@@ -19,10 +20,32 @@ class App extends Component {
         <ConnectedRouter history={history}>
           <div className="app">
             <aside className="app__sidebar">
+              <ScoreBoard/>
             </aside>
             <main className="app__main">
-              <Board/>
-              <StartGame/>
+              <AnimatedRoute
+                className="app__route"
+                exact
+                path="/"
+                component={StartGame}
+                atEnter={{ offset: 0 }}
+                atLeave={{ offset: -200 }}
+                atActive={{ offset: 0 }}
+                mapStyles={(styles) => ({
+                  transform: `translateY(${styles.offset}%)`
+                })}
+              />
+              <AnimatedRoute
+                className="app__route"
+                path="/start"
+                component={Board}
+                atEnter={{ offset: 0 }}
+                atLeave={{ offset: 100 }}
+                atActive={{ offset: -100 }}
+                mapStyles={(styles) => ({
+                  transform: `translateY(${styles.offset}%)`
+                })}
+              />
             </main>
            {/* <Dispatcher actionCreators={actions}/>*/}
           </div>
