@@ -1,9 +1,9 @@
 import React from 'react';
 import './heading.scss';
 
-function Heading(title) {
+const Heading = props => {
     return (
-        <h2 className="heading">title</h2>
+        <h2 className="heading">{props.title}</h2>
     )
 }
 

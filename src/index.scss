@@ -1,5 +1,13 @@
 @import url('https://fonts.googleapis.com/css?family=Mitr:400,700|Modak');
 
+*:focus {
+	outline: none;
+}
+
+*::selection {
+	background-color: #FA7979;
+}
+
 html, 
 body,
 #root {

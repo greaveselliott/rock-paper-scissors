@@ -26,7 +26,7 @@ class App extends Component {
             </aside>
             <main className="app__main">
               <Logo/>
-              <Heading/>
+              <Heading title="Pick mode"/>
               <ButtonToggleMode/>
               <ButtonStartGame/>
             </main>

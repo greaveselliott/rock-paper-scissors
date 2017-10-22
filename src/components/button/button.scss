@@ -12,6 +12,7 @@
     padding-right: 25px;
     width: 100%;
     text-transform: uppercase;
+    letter-spacing: 0.09em;
     transition: background-color 220ms ease-in, color 220ms ease-in, border-color 220ms ease-in;
 
     &:hover {
@@ -19,19 +20,27 @@
         border-color: lighten(#6FCF97, 5);
     }
 
-    &[class*="--white"],&[class*="--hollow"]:hover {
+    &[class*="--toggled"] {
         background-color: white;
         border-color: white;
         color: #2D9CDB;
+        cursor: default;
     }
-
-    &[class*="--hollow"] {
+    
+    &[class*="--not-toggled"] {
         background-color: transparent;
         border-color: white;
         color: white;
+
+        &:hover {
+            background-color: rgba(255, 255, 255, 0.15);
+            border-color: white;
+        }
     }
 
     &[class*="--large"] {
         height: 70px;
+        font-size: 22px;
+        font-weight: 300;
     }
 }
