@@ -1,6 +1,7 @@
 
 
-.app {
+
+[class*="app"] {
   background: #2d9cdb; /* Old browsers */
   background: -moz-radial-gradient(center, ellipse cover,  #2d9cdb 0%, #5abef7 100%); /* FF3.6-15 */
   background: -webkit-radial-gradient(center, ellipse cover,  #2d9cdb 0%,#5abef7 100%); /* Chrome10-25,Safari5.1-6 */
@@ -11,18 +12,26 @@
   overflow: hidden;
   position: relative;
   width: 100%;
-}
 
-.app__sidebar {
-  background-color: white;
-  height: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 300px;
-}
+  &[class*="--started"] {
+    padding-left: 300px;
+  }
 
-.app__main {
-  display: block;
-  height: 100%;
+  &[class*="__sidebar"] {
+    background-color: white;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    right: 100%;
+    width: 300px;
+
+    &[class*="--visible"] {
+      right: calc(100% - 300px);
+    }
+  }
+
+  &__main {
+    display: block;
+    height: 100%;
+  }  
 }
