@@ -1,0 +1,22 @@
+[class*="l-board"] {
+    
+    [class*="__opponent"] {
+        transition: transform 330ms ease-out;
+        
+        &[class*="--exit"] {
+            transform: translateY(-140px);
+        }
+    }
+
+    [class*="__notification"] {
+        margin-bottom: 30px;
+    }
+
+    [class*="__player"] {
+        transition: transform 330ms ease-out;
+
+        &[class*="--exit"] {
+            transform: translateY(140px);
+        }
+    }
+}

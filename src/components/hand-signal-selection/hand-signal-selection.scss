@@ -3,13 +3,4 @@
     flex-direction: row;
     justify-content: center;
     margin-bottom: 30px;
-    transition: transform 330ms ease-out;
-
-    &[class*="--exit-top"] {
-        transform: translateY(-140px);
-    }
-
-    &[class*="--exit-bottom"] {
-        transform: translateY(140px);
-    }
 }
