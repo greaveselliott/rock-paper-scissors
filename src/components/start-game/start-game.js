@@ -10,7 +10,7 @@ export default class StartGame extends Component {
         return (
             <div>
                 <Logo/>
-                <Heading title="Pick mode"/>
+                <Heading title="Pick mode."/>
                 <ButtonToggleMode/>
                 <ButtonStartGame/>
             </div>
