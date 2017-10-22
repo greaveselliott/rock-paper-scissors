@@ -1,9 +1,9 @@
 import React from 'react';
 import './button.scss';
 
-function Button(text) {
+const Button = props => {
     return (
-        <button className="button">text</button>
+        <button className={props.modifier ? `a-button${props.modifier}` : 'a-button'}>{props.text}</button>
     )
 }
 

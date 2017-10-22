@@ -9,7 +9,7 @@ function ButtonToggleMode() {
                 <Button text="Human VS Computer"/>
             </div>
             <div className="button-toggle-mode__column">
-                <Button text="Computer VS Computer"/>
+                <Button text="Computer VS Computer" modifier="--hollow"/>
             </div>
         </div>
     )

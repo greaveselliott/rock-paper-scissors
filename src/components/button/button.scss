@@ -1,4 +1,4 @@
-.button {
+[class*="a-button"] {
     background-color: #6FCF97;
     border-width: 4px;
     border-style: solid;
@@ -12,14 +12,14 @@
     padding-right: 25px;
     width: 100%;
     text-transform: uppercase;
+    transition: background-color 220ms ease-in, color 220ms ease-in, border-color 220ms ease-in;
 
     &:hover {
         background-color: lighten(#6FCF97, 5);
+        border-color: lighten(#6FCF97, 5);
     }
-}
 
-[class*="button"] {
-    &[class*="--white"] {
+    &[class*="--white"],&[class*="--hollow"]:hover {
         background-color: white;
         border-color: white;
         color: #2D9CDB;
@@ -32,8 +32,6 @@
     }
 
     &[class*="--large"] {
-        background-color: white;
-        color: #2D9CDB;
-        height: 100px;
+        height: 70px;
     }
 }

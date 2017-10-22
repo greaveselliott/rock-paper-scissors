@@ -4,7 +4,7 @@ import './button-start-game.scss';
 
 function ButtonStartGame() {
     return (
-        <Button text="Play"/>
+        <Button text="Play" modifier="--large"/>
     )
 }
 
