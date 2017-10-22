@@ -6,7 +6,7 @@ import Dispatcher from 'redux-devtools-dispatch';
 import * as actions from './logic/actions';
 import { ConnectedRouter } from 'react-router-redux';
 import { history } from './redux/store';
-import Avatar from './components/avatar';
+import ScoreBoard from './components/score-board';
 import Logo from './components/logo';
 import Heading from './components/heading';
 import ButtonToggleMode from './components/button-toggle-mode';
@@ -21,8 +21,7 @@ class App extends Component {
         <ConnectedRouter history={history}>
           <div className="app">
             <aside className="app__sidebar">
-              <Avatar/>
-              <Avatar/>
+              <ScoreBoard/>
             </aside>
             <main className="app__main">
               <Logo/>

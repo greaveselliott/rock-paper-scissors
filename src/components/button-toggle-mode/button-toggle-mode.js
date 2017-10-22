@@ -2,7 +2,7 @@ import React from 'react'
 import "./button-toggle-mode.scss";
 import Button from '../button'
 
-function ButtonToggleMode() {
+const ButtonToggleMode = props => {
     return (
         <div className="m-button-toggle-mode">
             <div className="m-button-toggle-mode__column">

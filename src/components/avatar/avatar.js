@@ -1,13 +1,13 @@
 import React from 'react';
 import './avatar.scss';
 
-function Avatar() {
+const Avatar = props => {
     return (
-        <figure className="avatar">
-            <img className="avatar__image" src=""/>
-            <figcaption className="avatar__caption">
-            <div className="avatar__name">Name</div>
-            <div className="avatar__score">Score: 0</div>
+        <figure className="m-avatar">
+            <img className="m-avatar__image" src={props.image} alt={`${props.name} profile picture.`}/>
+            <figcaption className="m-avatar__caption">
+                <div className="m-avatar__name">{props.name}</div>
+                <div className="m-avatar__score">Score: {props.score}</div>
             </figcaption>
         </figure>
     )
