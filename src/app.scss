@@ -1,5 +1,4 @@
-
-
+@import './variables';
 
 .app {
   background: #2d9cdb; /* Old browsers */
@@ -14,6 +13,11 @@
   width: 100%;
   padding-left: 300px;
 
+  @media (max-width: map-get($media-query, 'medium')) {
+    padding-left: 0;
+    padding-top: 80px;
+  }
+
   &__sidebar {
     position: absolute;
     top: 0;
@@ -21,6 +25,11 @@
     left: 0;
     background-color: white;
     width: 300px;
+
+    @media (max-width: map-get($media-query, 'medium')) {
+      width: 100%;
+      height: 80px;
+    }
   }
 
   &__main {

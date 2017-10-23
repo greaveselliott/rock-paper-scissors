@@ -1,3 +1,5 @@
+@import '../../variables.scss';
+
 [class*="m-hand-signal"] {
     height: 200px;
     width: 180px;
@@ -6,6 +8,11 @@
     border-radius: 20px;
     position: relative;
     transition: transform 330ms ease-out;
+
+    @media (max-width: map-get($media-query, 'medium')) {
+        width: 100px;
+        height: 120px;
+    }
 
     &[class*="--not-selected"] {
         opacity: 0.3;

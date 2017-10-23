@@ -1,3 +1,5 @@
+@import '../../variables';
+
 .m-avatar {
     display: block;
     font-family: 'Mitr', sans-serif;
@@ -5,14 +7,29 @@
     text-align: center;
     margin-bottom: 30px;
 
+    @media (max-width: map-get($media-query, 'medium')) {
+        margin-bottom: 0px;
+    }
+
     &__image {
         width: 60px;
         margin-bottom: 10px;
+        
+        @media (max-width: map-get($media-query, 'medium')) {
+            width: 30px;
+            display: inline-block;
+            margin-bottom: 4px;
+        }
     }
     
     &__caption {
         text-transform: uppercase;
         font-size: 12px;
+        @media (max-width: map-get($media-query, 'medium')) {
+            display: inline-block;
+            text-align: left;
+            padding-left: 10px;
+        }
     }
 
     &__name {
