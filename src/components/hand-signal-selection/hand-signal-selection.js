@@ -8,9 +8,7 @@ const HandSignalSelection = props => {
             {
                 props.hand_signals && props.hand_signals.map((value, index) => {
                     return (
-                        <div key={value} className="o-hand-signal-selection__column">
-                            <HandSignal icon={value} name={value}/>
-                        </div>
+                        <HandSignal key={value} icon={value} name={value}/>
                     )
                 })
             }

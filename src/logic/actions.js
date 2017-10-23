@@ -63,8 +63,9 @@ export const complete_game = () => {
     }
 };
 
-export const increment_player_Score = () => {
+export const increment_player_Score = player => {
     return {
-        type: CONSTANTS.INCREMENT_PLAYER_SCORE
+        type: CONSTANTS.INCREMENT_PLAYER_SCORE,
+        player
     }
 };
