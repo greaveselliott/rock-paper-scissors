@@ -20,8 +20,7 @@ export const initialState = {
     game_started: false,
     is_revealing: false,
     game_outcome: undefined,
-    display_siganl_options: false,
-    reveal_selected_signal_options: false
+    display_restart_game: false
 };
 
 const game_play = (state = initialState, action) => {
