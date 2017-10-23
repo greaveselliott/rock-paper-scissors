@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import './board.scss';
 import HandSignalSelection from '../hand-signal-selection';
 import Heading from '../heading';
-import Link from 'react-router-dom/Link';
+import Button from '../button';
 
 class Board extends Component {
 
@@ -23,7 +23,7 @@ class Board extends Component {
                 <div className="l-board__notification">
                     {this.props.outcome === null && <Heading title="Select a symbol."/>}
                     {this.props.outcome !== null && <Heading title={`You ${this.props.outcome}!`}/>}
-                    {this.props.outcome !== null && <Link className="a-button--large" to="/">Restart game</Link>}
+                    {this.props.outcome !== null && <Button className="a-button--large" text="Restart game"/>}
                 </div>
                 <div className="l-board__player">
                     <HandSignalSelection 

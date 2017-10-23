@@ -3,7 +3,7 @@ import './start-game.scss';
 import Logo from '../logo';
 import Heading from '../heading';
 import ButtonToggleMode from '../button-toggle-mode';
-import Link from 'react-router-dom/Link';
+import Button from '../button';
 
 export default class StartGame extends Component {
     render() {
@@ -12,7 +12,7 @@ export default class StartGame extends Component {
                 <Logo/>
                 <Heading title="Pick mode."/>
                 <ButtonToggleMode/>
-                <Link className="a-button--large" to="/start">Play</Link>
+                <Button className="a-button--large" text="Start"/>
             </div>
         )
     }
