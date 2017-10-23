@@ -8,7 +8,15 @@ const HandSignalSelection = props => {
             {
                 props.hand_signals && props.hand_signals.map((value, index) => {
                     return (
-                        <HandSignal key={value} icon={value} name={value}/>
+                        <HandSignal 
+                            key={value} 
+                            icon={value} 
+                            name={value} 
+                            is_selected={true}
+                            is_human={false}
+                            has_won={true}
+                            is_hidden={false}    
+                        />
                     )
                 })
             }

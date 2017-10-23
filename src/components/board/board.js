@@ -12,7 +12,7 @@ class Board extends Component {
         return (
             <div className="l-board">
                 <div className="l-board__opponent">
-                    <HandSignalSelection hand_signals={this.props.hand_signals}/>
+                    <HandSignalSelection hand_signals={this.props.hand_signals} user="opponent"/>
                 </div>
                 <div className="l-board__notification">
                     <Heading title="Select a symbol."/>
@@ -20,7 +20,7 @@ class Board extends Component {
                     <Link className="a-button--large" to="/">Restart game</Link>
                 </div>
                 <div className="l-board__player">
-                    <HandSignalSelection hand_signals={this.props.hand_signals}/>
+                    <HandSignalSelection hand_signals={this.props.hand_signals} user="player"/>
                 </div>
             </div>
         )

@@ -18,10 +18,6 @@
         opacity: 0.3;
     }
 
-    &[class*="--selected"] {
-        
-    }
-
     &[class*="--selected-by-opponent"] {
         transform: translateY(30px);
     }
