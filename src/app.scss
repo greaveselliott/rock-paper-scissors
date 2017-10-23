@@ -40,8 +40,19 @@
     margin-left: auto;
     margin-right: auto;
   }  
+}
 
-  &__route {
-    height: 100%;
+
+[class*="__layer"]{
+  height: 100%;
+  padding-left: 25px;
+  padding-right: 25px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  transition: transform 330ms ease-out;
+
+  &[class*="--inactive"] {
+    transform: translateY(-100%);
   }
 }

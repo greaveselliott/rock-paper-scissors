@@ -16,12 +16,12 @@ class App extends Component {
       <Provider store={store}>
           <div className="app">
             <aside className="app__sidebar">
-            <Dispatcher actionCreators={actions}/> 
+              {/*<Dispatcher actionCreators={actions}/> */}
               <ScoreBoard/>
             </aside>
             <main className="app__main">
-              <StartGame/>
-              <Board/>
+              <StartGame className="app__layer"/>
+              <Board className="app__layer"/>
             </main>
           </div>
       </Provider>

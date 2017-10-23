@@ -73,7 +73,7 @@ const game_play = (state = initialState, action) => {
     case CONSTANTS.START_GAME:
       return {
           ..._.merge(state,{
-          start_game: true
+          game_started: true
         })
       };
     

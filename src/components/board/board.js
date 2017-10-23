@@ -6,37 +6,34 @@ import HandSignalSelection from '../hand-signal-selection';
 import Heading from '../heading';
 import Button from '../button';
 
-class Board extends Component {
-
-    render() {
-        return (
-            <div className="l-board">
-                <div className="l-board__opponent">
-                    <HandSignalSelection 
-                        hand_signals={this.props.hand_signals} 
-                        is_contestant_player={false} 
-                        selected_symbol={this.props.selected_opponent_symbol} 
-                        is_revealing={this.props.is_revealing}
-                        has_won={!this.props.outcome}
-                    />
-                </div>
-                <div className="l-board__notification">
-                    {this.props.outcome === null && <Heading title="Select a symbol."/>}
-                    {this.props.outcome !== null && <Heading title={`You ${this.props.outcome}!`}/>}
-                    {this.props.outcome !== null && <Button className="a-button--large" text="Restart game"/>}
-                </div>
-                <div className="l-board__player">
-                    <HandSignalSelection 
-                        hand_signals={this.props.hand_signals} 
-                        is_contestant_player={true} 
-                        selected_symbol={this.props.selected_player_symbol}
-                        is_revealing={this.props.is_revealing}
-                        has_won={this.props.outcome}
-                    />
-                </div>
+const Board = ({className, active, hand_signals, selected_player_symbol, selected_opponent_symbol, is_revealing, outcome}) => {
+    return (
+        <div className={`${className}${active ? "--inactive": ""} l-board`}>
+            <div className="l-board__opponent">
+                <HandSignalSelection 
+                    hand_signals={hand_signals} 
+                    is_contestant_player={false} 
+                    selected_symbol={selected_opponent_symbol} 
+                    is_revealing={is_revealing}
+                    has_won={!outcome}
+                />
             </div>
-        )
-    }
+            <div className="l-board__notification">
+                {outcome === null && <Heading title="Select a symbol."/>}
+                {outcome !== null && <Heading title={`You ${outcome}!`}/>}
+                {outcome !== null && <Button modifier="--large" text="Restart game"/>}
+            </div>
+            <div className="l-board__player">
+                <HandSignalSelection 
+                    hand_signals={hand_signals} 
+                    is_contestant_player={true} 
+                    selected_symbol={selected_player_symbol}
+                    is_revealing={is_revealing}
+                    has_won={outcome}
+                />
+            </div>
+        </div>
+    )
 }
 
 Board.propTypes = {
@@ -53,6 +50,7 @@ const mapStateToProps = state => {
         selected_player_symbol: state.store.player.selected_symbol,
         selected_opponent_symbol: state.store.opponent.selected_symbol,
         outcome: state.store.outcome,
+        active: state.store.game_started,
         is_revealing: state.store.is_revealing
     };
 };
