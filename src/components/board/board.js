@@ -19,11 +19,12 @@ const Board = ({className, active, hand_signals, selected_player_symbol, selecte
                     has_won={!outcome}
                 />
             </div>
+            
             <div className="l-board__notification-area">
                 <div className={`l-board__select-symbol${enter_exit_modifier(is_revealing)}`}><Heading title="Select a symbol."/></div>
                 <div className={`l-board__outcome${enter_exit_modifier(is_revealing === false)}`}>
                     <Heading title={`You ${outcome}!`}/>
-                    <Button click_handler={on_reset_game} modifier="--large" text="Restart game"/>
+                    <Button click_handler={on_reset_game} modifier="--large" text="Play again"/>
                 </div>
             </div>
             <div className={`l-board__player${enter_exit_modifier(is_revealing)}`}>
@@ -65,6 +66,8 @@ const mapStateToProps = state => {
         selected_opponent_symbol: state.store.opponent.selected_symbol,
         outcome: state.store.outcome,
         active: state.store.game_started,
+        is_ai_alive: state.store.player.is_ai_alive,
+        is_human: state.store.player.is_human,
         is_revealing: state.store.is_revealing
     };
 };

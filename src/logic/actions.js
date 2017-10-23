@@ -57,6 +57,18 @@ export const decide_winner = () => {
     }
 };
 
+export const start_ai = () => {
+    return {
+        type: CONSTANTS.START_AI
+    }
+}
+
+export const stop_ai = () => {
+    return {
+        type: CONSTANTS.STOP_AI
+    }
+}
+
 export const complete_game = () => {
     return {
         type: CONSTANTS.COMPLETE_GAME
