@@ -28,9 +28,9 @@ const getIconComponent = (icon) => {
             return  Paper;
         case 'scissors':
             return Scissors;
-        case 'Lizard':
+        case 'lizard':
             return Lizard;
-        case 'Spock':
+        case 'spock':
             return Spock;
         default:
             return _.random(0, 1) ? Flask : Rocket;

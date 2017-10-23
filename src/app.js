@@ -20,10 +20,11 @@ class App extends Component {
         <ConnectedRouter history={history}>
           <div className="app">
             <aside className="app__sidebar">
+            <Dispatcher actionCreators={actions}/> 
               <ScoreBoard/>
             </aside>
             <main className="app__main">
-           {/* <Dispatcher actionCreators={actions}/> */}
+           
               <AnimatedRoute
                 className="app__route"
                 exact

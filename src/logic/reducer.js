@@ -9,15 +9,15 @@ export const initialState = {
     player: {
       score: 0,
       is_human: true,
-      selected_symbol: undefined,
+      selected_symbol: null,
     },
     opponent: {
       score: 0,
       is_human: false,
-      selected_symbol: undefined,
+      selected_symbol: null,
     },
     game_started: false,
-    game_complete: false,
+    is_revealing: false,
     game_outcome: undefined,
     display_siganl_options: false,
     reveal_selected_signal_options: false
@@ -58,7 +58,7 @@ const game_play = (state = initialState, action) => {
       return { 
         ..._.merge(state,{
           [action.player]: {
-            selected_symbol: action.player.is_human ? action.selected_symbol : get_random_symbol(state.ruleset)     
+            selected_symbol: state[action.player].is_human ? action.selected_symbol : get_random_symbol(state.ruleset)     
           }
         })
       };
@@ -87,10 +87,14 @@ const game_play = (state = initialState, action) => {
       let player_symbol = state.player.selected_symbol;
       let opponent_symbol = state.opponent.selected_symbol;
       let outcome = calculation(player_symbol, opponent_symbol, state.ruleset);
-      
+      let winner = outcome ? 'player' : 'opponent';
+      let incremented_winners_score = outcome ? state.player.score + 1 : state.opponent.score + 1;
+
       return {
           ..._.merge(state,{
-          outcome
+          outcome,
+          is_revealing: true,
+          [winner]: incremented_winners_score
         })
       };
     

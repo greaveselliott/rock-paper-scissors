@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 const Avatar = ({image, name, score}) => {
     return (
         <figure className="m-avatar">
-            <img className="m-avatar__image" src={image} alt={`${name} profile picture.`}/>
+            <img className="m-avatar__image" src={image} alt={`${name} profile.`}/>
             <figcaption className="m-avatar__caption">
                 <div className="m-avatar__name">{name}</div>
                 <div className="m-avatar__score">Score: {score}</div>
