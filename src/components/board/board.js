@@ -5,11 +5,12 @@ import './board.scss';
 import HandSignalSelection from '../hand-signal-selection';
 import Heading from '../heading';
 import Button from '../button';
+import { decide_winner } from '../../logic/actions';
 
-const Board = ({className, active, hand_signals, selected_player_symbol, selected_opponent_symbol, is_revealing, outcome}) => {
+const Board = ({className, active, hand_signals, selected_player_symbol, selected_opponent_symbol, is_revealing, outcome, on_decide_winner}) => {
     return (
         <div className={`${className}${active ? "--inactive": ""} l-board`}>
-            <div className="l-board__opponent">
+            <div className={`l-board__opponent${enter_exit_modifier(is_revealing)}`}>
                 <HandSignalSelection 
                     hand_signals={hand_signals} 
                     is_contestant_player={false} 
@@ -18,12 +19,14 @@ const Board = ({className, active, hand_signals, selected_player_symbol, selecte
                     has_won={!outcome}
                 />
             </div>
-            <div className="l-board__notification">
-                {outcome === null && <Heading title="Select a symbol."/>}
-                {outcome !== null && <Heading title={`You ${outcome}!`}/>}
-                {outcome !== null && <Button modifier="--large" text="Restart game"/>}
+            <div className="l-board__notification-area">
+                <div className={`l-board__select-symbol${enter_exit_modifier(is_revealing)}`}><Heading title="Select a symbol."/></div>
+                <div className={`l-board__outcome${enter_exit_modifier(is_revealing === false)}`}>
+                    <Heading title={`You ${outcome}!`}/>
+                    <Button modifier="--large" text="Restart game"/>
+                </div>
             </div>
-            <div className="l-board__player">
+            <div className={`l-board__player${enter_exit_modifier(is_revealing)}`}>
                 <HandSignalSelection 
                     hand_signals={hand_signals} 
                     is_contestant_player={true} 
@@ -31,17 +34,27 @@ const Board = ({className, active, hand_signals, selected_player_symbol, selecte
                     is_revealing={is_revealing}
                     has_won={outcome}
                 />
+                <Button click_handler={on_decide_winner} className={`l-board__confirm-selection${confirm_selection_modifier(selected_player_symbol, is_revealing)}`} text="Confirm selection"/>
             </div>
         </div>
     )
 }
+
+const enter_exit_modifier = (is_revealing) => {
+    return is_revealing === false ? '--enter' : '--exit';
+};
+
+const confirm_selection_modifier = (selected_player_symbol, is_revealing) => {
+    return selected_player_symbol !== null && is_revealing === false ? '--enter' : 
+        (selected_player_symbol !== null && is_revealing ? '--exit' : '--inactive');
+};
 
 Board.propTypes = {
     hand_signals: PropTypes.array,
 };
 
 const mapDispatchToProps = dispatch => ({
-    
+    on_decide_winner: () => dispatch(decide_winner())
 });
 
 const mapStateToProps = state => {

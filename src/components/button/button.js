@@ -1,9 +1,9 @@
 import React from 'react';
 import './button.scss';
 
-const Button = props => {
+const Button = ({click_handler, modifier, className, text}) => {
     return (
-        <button onClick={()=>{props.click_handler();}} className={props.modifier ? `a-button${props.modifier}` : 'a-button'}>{props.text}</button>
+        <button onClick={()=>{click_handler();}} className={`a-button${modifier ? modifier :""} ${className}`}>{text}</button>
     )
 }
 

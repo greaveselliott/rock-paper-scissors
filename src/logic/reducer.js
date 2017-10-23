@@ -27,9 +27,11 @@ const game_play = (state = initialState, action) => {
   switch (_.get(action, 'type', undefined)) {
 
     case CONSTANTS.ROCK_PAPER_SCISSORS_LIZARD_SPOCK:
-    return _.merge(state,{
-      ruleset: configuration.rock_paper_scissors_lizard_spock
-    });
+    return {
+      ..._.merge(state,{
+        ruleset: configuration.rock_paper_scissors_lizard_spock
+      })
+    };
 
     case CONSTANTS.DISPLAY_START_SCREEN:
       return {

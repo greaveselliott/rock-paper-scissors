@@ -13,7 +13,7 @@ const HandSignalSelection = ({hand_signals, is_contestant_player, selected_symbo
                     return (
                         <HandSignal 
                             key={symbol} 
-                            click_handler={() => { is_contestant_player && on_select_symbol(symbol)}}
+                            click_handler={() => { is_revealing === false && is_contestant_player && on_select_symbol(symbol)}}
                             icon={symbol} 
                             name={symbol} 
                             modifier={get_modifier(symbol, selected_symbol, is_contestant_player, is_revealing, has_won)}
@@ -35,7 +35,7 @@ const get_modifier = (this_symbol, selected_symbol, is_contestant_player, is_rev
     let modifier = "";
       
         modifier += (is_revealing === false && is_contestant_player === false) ? "--hidden" : "";         
-        modifier += (selected_symbol && this_symbol !== selected_symbol) ? "--not-selected" : "";
+        modifier += ((is_contestant_player === false && is_revealing === true) && selected_symbol && this_symbol !== selected_symbol) ? "--not-selected" : "";
         modifier += (selected_symbol && this_symbol === selected_symbol && is_contestant_player) ? "--selected-by-player" : "";
         modifier += (is_revealing === true && selected_symbol && this_symbol === selected_symbol && is_contestant_player === false) ? "--selected-by-opponent" : "";
         modifier += (selected_symbol && this_symbol === selected_symbol && has_won) ? "--has-won" : "";

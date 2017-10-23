@@ -3,8 +3,6 @@
 [class*="m-hand-signal"] {
     height: 200px;
     width: 180px;
-    margin-left: 40px;
-    margin-right: 40px;
     border-radius: 20px;
     position: relative;
     transition: transform 330ms ease-out;
@@ -91,11 +89,21 @@
         top: 10px;
         box-shadow: none;
 
+        @media (max-width: map-get($media-query, 'medium')) {
+            width: 50px;
+        }
+
         &[class*="--small"] {
             top: 0px;
             width: 30px;
             margin-top: 8px;
             margin-bottom: 8px;
+
+            @media (max-width: map-get($media-query, 'medium')) {
+                width: 20px;
+                margin-top: 4px;
+                margin-bottom: 4px;
+            }
         }
     }
 
@@ -114,5 +122,9 @@
         margin-left: 0;
         margin-right: 0;
         box-shadow: none;
+
+        @media (max-width: map-get($media-query, 'medium')) {
+            font-size: 10px;
+        }
     }
 }

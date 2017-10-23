@@ -6,7 +6,7 @@ import Scissors from './scissors.svg';
 import Lizard from './lizard.svg';
 import Spock from './spock.svg';
 import Flask from './flask.svg';
-import Rocket from './rock.svg';
+import Rocket from './rocket.svg';
 import _ from 'lodash';
 import PropTypes from 'prop-types';
 
