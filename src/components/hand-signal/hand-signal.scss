@@ -70,13 +70,13 @@
         }
     }
 
-    &[class*="--won"] {
+    &[class*="--has-won"] {
         [class*="__face"] {
             box-shadow:2px 2px 0px rgba(0, 0, 0, 0.25), inset 0 0 0 4px #6FCF97;
         }
     }
 
-    &[class*="--lost"] {
+    &[class*="--has-lost"] {
         [class*="__face"] {
             box-shadow: 2px 2px 0px rgba(0, 0, 0, 0.25), inset 0 0 0 4px #FA7979;
         }

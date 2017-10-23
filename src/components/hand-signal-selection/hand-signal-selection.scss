@@ -1,6 +1,14 @@
-[class*="o-hand-signal-selection"] {
+.o-hand-signal-selection {
     display: flex;
     flex-direction: row;
     justify-content: center;
     margin-bottom: 30px;
+
+    &--exit-top {
+        transform: translateY(-300px);
+    }
+
+    &--exit-bottom {
+        transform: translateY(300px);
+    }
 }

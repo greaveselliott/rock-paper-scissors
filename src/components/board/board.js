@@ -21,9 +21,9 @@ class Board extends Component {
                     />
                 </div>
                 <div className="l-board__notification">
-                    <Heading title="Select a symbol."/>
-                    <Heading title={`You ${this.props.outcome}!`}/>
-                    <Link className="a-button--large" to="/">Restart game</Link>
+                    {this.props.outcome === null && <Heading title="Select a symbol."/>}
+                    {this.props.outcome !== null && <Heading title={`You ${this.props.outcome}!`}/>}
+                    {this.props.outcome !== null && <Link className="a-button--large" to="/">Restart game</Link>}
                 </div>
                 <div className="l-board__player">
                     <HandSignalSelection 
@@ -31,7 +31,7 @@ class Board extends Component {
                         is_contestant_player={true} 
                         selected_symbol={this.props.selected_player_symbol}
                         is_revealing={this.props.is_revealing}
-                        has_won={!this.props.outcome}
+                        has_won={this.props.outcome}
                     />
                 </div>
             </div>

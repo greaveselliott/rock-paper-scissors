@@ -16,6 +16,7 @@ export const initialState = {
       is_human: false,
       selected_symbol: null,
     },
+    outcome: null,
     game_started: false,
     is_revealing: false,
     game_outcome: undefined,
@@ -77,24 +78,35 @@ const game_play = (state = initialState, action) => {
         })
       };
     
-    case CONSTANTS.RESTART_GAME: {
+    case CONSTANTS.RESTART_GAME:
       return {
-        ..._.merge(state,initialState)
-      };
-    }
+        ..._.merge(state,{
+          is_revealing: false,
+          game_started: false,
+          outcome: null,
+          player: {
+            selected_symbol: null
+          },
+          opponent: {
+            selected_symbol: null
+          }
+      })
+    };
 
     case CONSTANTS.DECIDE_WINNER:
       let player_symbol = state.player.selected_symbol;
       let opponent_symbol = state.opponent.selected_symbol;
       let outcome = calculation(player_symbol, opponent_symbol, state.ruleset);
-      let winner = outcome ? 'player' : 'opponent';
-      let incremented_winners_score = outcome ? state.player.score + 1 : state.opponent.score + 1;
-
+      let winner = outcome === CONSTANTS.OUTCOME_WIN ? 'player' : 'opponent';
+      let incremented_winners_score = outcome === CONSTANTS.OUTCOME_DRAW ?  state[winner].score : state[winner].score + 1;
+      
       return {
           ..._.merge(state,{
-          outcome,
-          is_revealing: true,
-          [winner]: incremented_winners_score
+            outcome,
+            is_revealing: true,
+            [winner]: {
+              score: incremented_winners_score
+            }
         })
       };
     
