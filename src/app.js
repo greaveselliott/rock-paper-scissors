@@ -23,6 +23,7 @@ class App extends Component {
               <ScoreBoard/>
             </aside>
             <main className="app__main">
+            <Dispatcher actionCreators={actions}/>
               <AnimatedRoute
                 className="app__route"
                 exact
@@ -47,7 +48,7 @@ class App extends Component {
                 })}
               />
             </main>
-           {/* <Dispatcher actionCreators={actions}/>*/}
+
           </div>
         </ConnectedRouter>
       </Provider>

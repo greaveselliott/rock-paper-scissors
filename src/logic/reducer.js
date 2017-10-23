@@ -8,7 +8,7 @@ export const initialState = {
     ruleset: configuration.rock_paper_scissors,
     player: {
       score: 0,
-      isHuman: true,
+      is_human: true,
       selected_symbol: undefined,
     },
     opponent: {
