@@ -1,11 +1,5 @@
 import * as CONSTANTS from './constants';
 
-export const rock_paper_scissors_lizard_spock = () => {
-    return {
-        type: CONSTANTS.ROCK_PAPER_SCISSORS_LIZARD_SPOCK
-    }
-}
-
 export const display_start_screen = () => {
     return {
         type: CONSTANTS.DISPLAY_START_SCREEN
@@ -16,12 +10,6 @@ export const computer_or_human_player = (is_human) => {
     return {
         type: CONSTANTS.COMPUTER_OR_HUMAN_PLAYER,
         is_human
-    }
-};
-
-export const display_signal_options = () => {
-    return {
-        type: CONSTANTS.DISPLAY_SIGNAL_OPTIONS
     }
 };
 
@@ -54,24 +42,6 @@ export const restart_game = () => {
 export const decide_winner = () => {
     return {
         type: CONSTANTS.DECIDE_WINNER
-    }
-};
-
-export const start_ai = () => {
-    return {
-        type: CONSTANTS.START_AI
-    }
-}
-
-export const stop_ai = () => {
-    return {
-        type: CONSTANTS.STOP_AI
-    }
-}
-
-export const complete_game = () => {
-    return {
-        type: CONSTANTS.COMPLETE_GAME
     }
 };
 

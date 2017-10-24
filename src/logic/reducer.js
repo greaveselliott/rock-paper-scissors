@@ -25,13 +25,6 @@ export const initialState = {
 const game_play = (state = initialState, action) => {
   switch (_.get(action, 'type', undefined)) {
 
-    case CONSTANTS.ROCK_PAPER_SCISSORS_LIZARD_SPOCK:
-    return {
-      ..._.merge(state,{
-        ruleset: configuration.rock_paper_scissors_lizard_spock
-      })
-    };
-
     case CONSTANTS.DISPLAY_START_SCREEN:
       return {
         ..._.merge(state,{
@@ -45,13 +38,6 @@ const game_play = (state = initialState, action) => {
           player: {
             is_human: action.is_human
           }
-        })
-      };
-
-    case CONSTANTS.DISPLAY_SIGNAL_OPTIONS:
-      return {
-        ..._.merge(state,{
-          display_siganl_options: true 
         })
       };
 
@@ -107,13 +93,6 @@ const game_play = (state = initialState, action) => {
             [winner]: {
               score: incremented_winners_score
             }
-        })
-      };
-    
-    case CONSTANTS.COMPLETE_GAME:
-      return {
-        ..._.merge(state,{
-          complete: true
         })
       };
     
