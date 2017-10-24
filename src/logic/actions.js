@@ -25,7 +25,7 @@ export const display_signal_options = () => {
     }
 };
 
-export const select_signal_option = (player, selected_symbol) => {
+export const select_signal_option = (player = "player", selected_symbol) => {
     return {
         type: CONSTANTS.SELECT_SIGNAL_OPTION,
         player,

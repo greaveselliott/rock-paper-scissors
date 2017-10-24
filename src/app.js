@@ -3,10 +3,10 @@ import { Provider } from 'react-redux';
 import configureStore from './redux/store';
 import './app.scss';
 import Dispatcher from 'redux-devtools-dispatch';
-import * as actions from './logic/actions';
 import ScoreBoard from './components/score-board';
 import StartGame from './components/start-game';
 import Board from './components/board';
+import AI from './components/ai';
 
 const store = configureStore();
 
@@ -23,6 +23,7 @@ class App extends Component {
               <StartGame className="app__layer"/>
               <Board className="app__layer"/>
             </main>
+            <AI/>
           </div>
       </Provider>
     );
