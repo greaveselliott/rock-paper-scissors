@@ -13,10 +13,12 @@
 
     &__image {
         width: 60px;
+        height: 60px;
         margin-bottom: 10px;
         
         @media (max-width: map-get($media-query, 'medium')) {
             width: 30px;
+            height: 30px;
             display: inline-block;
             margin-bottom: 4px;
         }

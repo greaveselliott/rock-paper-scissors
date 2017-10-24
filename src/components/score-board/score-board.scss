@@ -1,31 +1,61 @@
 @import '../../variables';
+@import '../../mixins';
 
 .o-score-board {
     height: 100%;
-    display: -ms-flexbox;
-    display: -webkit-flex;
     display: flex;
-    -webkit-flex-direction: column;
-    -ms-flex-direction: column;
     flex-direction: column;
-    -webkit-flex-wrap: nowrap;
-    -ms-flex-wrap: nowrap;
     flex-wrap: nowrap;
-    -webkit-justify-content: center;
-    -ms-flex-pack: center;
     justify-content: center;
-    -webkit-align-content: space-around;
-    -ms-flex-line-pack: distribute;
     align-content: space-around;
-    -webkit-align-items: center;
-    -ms-flex-align: center;
     align-items: center;
+
+    @include nope('flexbox') {
+        text-align: center;
+    }
 
     @media (max-width: map-get($media-query, 'medium')) {
         flex-direction: row;
     }
+}
+[class*="o-score-board"]{
     
-    &__player {
-        padding: 50px; 
+    [class*="__contestent"] {
+        padding-left: 50px;
+        padding-right: 50px;
+
+        @media (max-width: map-get($media-query, 'medium')) {
+            display: inline-block;
+        }
+
+        @include nope('flexbox') {
+            position: relative;
+            padding-top: 25px;
+            padding-bottom: 25px;
+            text-align: center;
+            @media (min-width: map-get($media-query, 'medium')) {
+                height: 50%;
+            }
+        }
+        @media (min-width: map-get($media-query, 'medium')) {
+        // Breaking BEM I know. I am filthy...
+        &[class*="--opponent"] > .m-avatar {
+            @include nope('flexbox') {
+                position: absolute;
+                width: 100%;
+                left: 0;
+                bottom: 0;
+            }
+        }
+
+        &[class*="--player"] > .m-avatar {
+            @include nope('flexbox') {
+                position: absolute;
+                width: 100%;
+                left: 0;
+                top: 0;
+            }
+        }
+    }
     }
 }

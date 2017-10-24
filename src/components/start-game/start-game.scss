@@ -1,0 +1,14 @@
+.no-flexbox {
+    .ie-center {
+        display: inline-block;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-right: 25px;
+    }
+
+    .ie-center__inner {
+        display: block;
+        transform: translateY(-50%) translateX(-33%);
+    }
+}

@@ -1,4 +1,5 @@
 @import '../../variables.scss';
+@import '../../mixins.scss';
 
 [class*="m-hand-signal"] {
     height: 200px;
@@ -6,10 +7,23 @@
     border-radius: 20px;
     position: relative;
     transition: transform 330ms ease-out;
+    cursor: pointer;
 
     @media (max-width: map-get($media-query, 'medium')) {
         width: 100px;
         height: 120px;
+    }
+
+    @include nope('flexbox') {
+        @media (max-width: 1000px) {
+            height: 175px;
+            width: 125px;
+        }
+
+        @media (max-width: '900px') {
+            height: 150px;
+            width: 110px;
+        }
     }
 
     &[class*="--not-selected"] {
@@ -17,15 +31,18 @@
     }
 
     &[class*="--selected-by-opponent"] {
-        transform: translateY(30px);
+       // @include nope('csstransforms3d') {
+            transform: translateY(30px);
+       // }
     }
 
     &[class*="--selected-by-player"] {
-        transform: translateY(-30px);
+       // @include nope('csstransforms3d') {
+            transform: translateY(-30px);
+       // }
     }
     
     &[class*="__face"], &[class*="__back"] {
-        align-items: center;
         backface-visibility: hidden;
         transition: transform 440ms ease-in;
         position: absolute;
@@ -35,30 +52,60 @@
         width: inherit;
         margin-left: 0;
         margin-right: 0;
-        display: flex;
-        justify-content: space-around;
-        flex-direction: column;
         box-shadow: 2px 2px 0px rgba(0, 0, 0, 0.25);
+
+        @include yep('flexbox') {
+            align-items: center;
+            display: flex;
+            justify-content: space-around;
+            flex-direction: column;
+        }
     }
 
     &[class*="__face"] {
         background-color: white;
-        transform: rotateY(0deg);
+
+        @include yep('csstransforms3d') {
+            transform: rotateY(0deg);
+        }
+        @include nope('csstransforms3d') {
+            display: block;
+        }
     }
 
     &[class*="__back"] {
         background-color: #2D9CDB;
-        transform: rotateY(180deg);
         justify-content: center;
+
+        @include yep('csstransforms3d') {
+            transform: rotateY(180deg);
+        }
+        @include nope('csstransforms3d') {
+            display: none;
+        }
+        @include nope('flexbox') {
+            padding-top: 20%;
+        }
     }
 
     &[class*="--hidden"] {
+
         [class*="__face"] {
-            transform: rotateY(180deg);
+            @include yep('csstransforms3d') {
+                transform: rotateY(180deg);
+            }
+            @include nope('csstransforms3d') {
+                display: none;
+            }
         }
 
         [class*="__back"] {
-            transform: rotateY(0deg); 
+            @include yep('csstransforms3d') {
+                transform: rotateY(0deg); 
+            }
+            @include nope('csstransforms3d') {
+                display: block;
+            }
         }
     }
 
@@ -89,6 +136,13 @@
         top: 10px;
         box-shadow: none;
 
+        @include nope('flexbox') {
+            display: block;
+            margin: 0 auto;
+            top: 20%;
+            width: 50%;
+        }
+
         @media (max-width: map-get($media-query, 'medium')) {
             width: 50px;
         }
@@ -110,7 +164,6 @@
     &[class*="__name"] {
         background-color: transparent;
         display: inline;
-        height: auto;
         font-family: Mitr;
         font-style: normal;
         font-weight: 300;
@@ -122,6 +175,13 @@
         margin-left: 0;
         margin-right: 0;
         box-shadow: none;
+        height: auto;
+
+        @include nope('flexbox') {
+            display: block;
+            margin: 0 auto;
+            top: 35%;
+        }
 
         @media (max-width: map-get($media-query, 'medium')) {
             font-size: 10px;

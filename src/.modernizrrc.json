@@ -1,0 +1,30 @@
+{
+	"minify": true,
+	"options": [
+		"setClasses"
+	],
+	"feature-detects": [
+		"css/animations",
+		"css/borderradius",
+		"css/boxshadow",
+		"css/boxsizing",
+		"css/flexbox",
+		"css/flexboxlegacy",
+		"css/flexboxtweener",
+		"css/flexwrap",
+		"css/fontface",
+		"css/gradients",
+		"css/hyphens",
+		"css/invalid",
+		"css/mediaqueries",
+		"css/pointerevents",
+		"css/pseudoanimations",
+		"css/pseudotransitions",
+		"css/rgba",
+		"css/transforms",
+		"css/transformslevel2",
+		"css/transforms3d",
+		"css/transformstylepreserve3d",
+		"css/transitions"
+	]
+}

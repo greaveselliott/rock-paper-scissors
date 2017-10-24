@@ -10,10 +10,14 @@ import { start_game } from '../../logic/actions';
 export const StartGame = ({className, active, on_start_game}) => {
     return (
         <div className={`${className}${active ? "": "--inactive"}`}>
-            <Logo/>
-            <Heading title="Pick mode."/>
-            <ButtonToggleMode/>
-            <Button click_handler={on_start_game} modifier="--large" text="Start"/>
+            <div className="ie-center">
+                <div className="ie-center__inner">
+                    <Logo/>
+                    <Heading title="Pick mode."/>
+                    <ButtonToggleMode/>
+                    <Button click_handler={on_start_game} modifier="--large" text="Start"/>
+                </div>
+            </div>
         </div>
     );
 };

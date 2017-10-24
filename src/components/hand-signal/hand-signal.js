@@ -3,9 +3,9 @@ import './hand-signal.scss';
 import Icon from '../icon';
 import PropTypes from 'prop-types';
 
-const HandSignal = ({name, modifier, click_handler}) => {
+const HandSignal = ({name, className, modifier, click_handler}) => {
     return (
-        <figure onClick={click_handler} className={`m-hand-signal${modifier}`}>
+        <figure onClick={click_handler} className={`${className} m-hand-signal${modifier}`}>
             <div className="m-hand-signal__face">
             <Icon className="m-hand-signal__icon" icon={name}/>
             <figcaption className="m-hand-signal__name">{name}</figcaption>

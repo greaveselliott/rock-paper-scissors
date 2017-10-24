@@ -24,7 +24,7 @@ const Board = ({className, active, hand_signals, selected_player_symbol, selecte
                 <div className={`l-board__select-symbol${enter_exit_modifier(is_revealing)}`}><Heading title="Select a symbol."/></div>
                 <div className={`l-board__outcome${enter_exit_modifier(is_revealing === false)}`}>
                     <Heading title={`You ${outcome}!`}/>
-                    <Button click_handler={on_reset_game} modifier="--large" text="Play again"/>
+                    <Button click_handler={on_reset_game} modifier="--large--fit" text="Play again"/>
                 </div>
             </div>
             <div className={`l-board__player${enter_exit_modifier(is_revealing)}`}>

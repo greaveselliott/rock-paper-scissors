@@ -1,0 +1,11 @@
+@mixin yep($feature) {
+    .#{$feature} & { 
+      @content;
+    }
+  }
+      
+@mixin nope($feature) {
+    .no-#{$feature} & {
+        @content;
+    }
+}

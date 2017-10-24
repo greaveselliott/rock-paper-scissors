@@ -9,10 +9,10 @@ import PropTypes from 'prop-types';
 export const ScoreBoard = ({opponent_score, player_score}) => {
     return (
             <div className="o-score-board">
-                <section className="o-score-board__player">
+                <section className="o-score-board__contestent--opponent">
                     <Avatar image={ImageOpponent} name="Opponent" score={opponent_score}/>
                 </section>
-                <section className="o-score-board__player">
+                <section className="o-score-board__contestent--player">
                     <Avatar image={ImagePlayer} name="Player" score={player_score}/>
                 </section>
             </div>

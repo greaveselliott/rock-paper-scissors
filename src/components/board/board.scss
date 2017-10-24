@@ -1,5 +1,7 @@
+@import '../../mixins';
+
 .l-board {
-    
+
     &__opponent {
         transition: transform 330ms ease-out;
         
@@ -42,7 +44,7 @@
     }
 
     &[class*="--enter"] {
-        bottom: 0;
+        bottom: 50px;
         opacity: 1;
     }
 }
@@ -61,34 +63,30 @@
     }
 }
 
-[class*="__outcome"] {
-    
-}
+[class*="__confirm-selection"] {
+    position: relative;
+    transition: top 300ms ease-in, opacity 300ms ease-in;
+    display: block;
+    width: auto;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 30px;
 
-    [class*="__confirm-selection"] {
-        position: relative;
-        transition: top 300ms ease-in, opacity 300ms ease-in;
-        display: block;
-        width: auto;
-        margin-left: auto;
-        margin-right: auto;
-        margin-bottom: 30px;
-
-        &[class*="--enter"] {
-            transition-delay: 400ms;
-            top: 0;
-            opacity: 1;
-        }
-
-        &[class*="--exit"] {
-            top: 30px;
-            transition-delay: 0s;
-            opacity: 0;
-        }
-        
-
-        &[class*="--inactive"]{
-            top: 30px;
-            opacity: 0;
-        }
+    &[class*="--enter"] {
+        transition-delay: 400ms;
+        top: 20px;
+        opacity: 1;
     }
+
+    &[class*="--exit"] {
+        top: 60px;
+        transition-delay: 0s;
+        opacity: 0;
+    }
+    
+
+    &[class*="--inactive"]{
+        top: 60px;
+        opacity: 0;
+    }
+}

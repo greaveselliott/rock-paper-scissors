@@ -90,6 +90,8 @@ module.exports = {
       // Support React Native Web
       // https://www.smashingmagazine.com/2016/08/a-glimpse-into-the-future-with-react-native-for-web/
       'react-native': 'react-native-web',
+
+      modernizr$: path.resolve("./src/.modernizrrc.json")
     },
     plugins: [
       // Prevents users from importing files from outside of src/ (or node_modules/).
@@ -107,6 +109,15 @@ module.exports = {
       // We are waiting for https://github.com/facebookincubator/create-react-app/issues/2176.
       // { parser: { requireEnsure: false } },
 
+      
+      {
+        test: /\.modernizrrc.js$/,
+        use: [ 'modernizr-loader' ]
+      },
+      {
+        test: /\.modernizrrc(\.json)?$/,
+        use: [ 'modernizr-loader', 'json-loader' ]
+      },
       // First, run the linter.
       // It's important to do this before Babel processes the JS.
       {
@@ -159,7 +170,7 @@ module.exports = {
           // In production, we use a plugin to extract that CSS to a file, but
           // in development "style" loader enables hot editing of CSS.
           {
-            test: /\.css$/,
+            test: /\.scss$/,
             use: [
               require.resolve('style-loader'),
               {
@@ -181,24 +192,17 @@ module.exports = {
                         '>1%',
                         'last 4 versions',
                         'Firefox ESR',
-                        'not ie < 9', // React doesn't support IE8 anyway
+                        'ie < 8', // React doesn't support IE8 anyway
                       ],
                       flexbox: 'no-2009',
                     }),
                   ],
                 },
-              },
+              }, 
+              {
+                  loader: "sass-loader" // compiles Sass to CSS
+              }
             ],
-          },
-          {
-            test: /\.scss$/,
-            use: [{
-                loader: "style-loader" // creates style nodes from JS strings
-            }, {
-                loader: "css-loader" // translates CSS into CommonJS
-            }, {
-                loader: "sass-loader" // compiles Sass to CSS
-            }]
           },
           // "file" loader makes sure those assets get served by WebpackDevServer.
           // When you `import` an asset, you get its (virtual) filename.
