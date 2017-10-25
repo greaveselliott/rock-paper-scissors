@@ -22,7 +22,7 @@ export const initialState = {
     game_outcome: undefined,
 };
 
-const game_play = (state = initialState, action) => {
+const reducers = (state = initialState, action) => {
   switch (_.get(action, 'type', undefined)) {
 
     case CONSTANTS.DISPLAY_START_SCREEN:
@@ -110,4 +110,4 @@ const game_play = (state = initialState, action) => {
   }
 };
 
-export default game_play;
+export default reducers;
