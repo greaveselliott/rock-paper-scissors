@@ -1,4 +1,4 @@
-import rules, { initialState } from './reducer';
+import reducer, { initialState } from './reducer';
 import * as action from './actions';
 import * as configuration from './configuration';
 import _ from 'lodash';
@@ -9,7 +9,7 @@ const data_drive_ruleset = (ruleset, action) => {
       // Set
       const mockState = initialState;
       const mockAction = action;
-      const mockReducer = rules;
+      const mockReducer = reducer;
 
       // Act
       const result = mockReducer(mockState, mockAction);

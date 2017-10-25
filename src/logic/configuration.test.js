@@ -1,4 +1,4 @@
-import rules, { initialState } from './reducer';
+import { initialState } from './reducer';
 import * as action from './actions';
 import * as configuration from './configuration';
 import _ from 'lodash';
