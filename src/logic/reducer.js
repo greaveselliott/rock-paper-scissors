@@ -25,13 +25,6 @@ export const initialState = {
 const reducers = (state = initialState, action) => {
   switch (_.get(action, 'type', undefined)) {
 
-    case CONSTANTS.DISPLAY_START_SCREEN:
-      return {
-        ..._.merge(state,{
-          game_started: true
-        })
-      };
-
     case CONSTANTS.COMPUTER_OR_HUMAN_PLAYER:
       return {
         ..._.merge(state,{
@@ -45,15 +38,8 @@ const reducers = (state = initialState, action) => {
       return { 
         ..._.merge(state,{
           [action.player]: {
-            selected_symbol: state[action.player].is_human ? action.selected_symbol : get_random_symbol(state.ruleset)     
+            selected_symbol: action.selected_symbol || state[action.player].is_human !== null ? action.selected_symbol : get_random_symbol(state.ruleset)     
           }
-        })
-      };
-
-    case CONSTANTS.REVEAL_SELECTED_SIGNAL_OPTIONS:
-      return {
-          ..._.merge(state,{
-          reveal_selected_signal_options: true
         })
       };
       

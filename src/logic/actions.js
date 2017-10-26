@@ -1,11 +1,5 @@
 import * as CONSTANTS from './constants';
 
-export const display_start_screen = () => {
-    return {
-        type: CONSTANTS.DISPLAY_START_SCREEN
-    }
-};
-
 export const computer_or_human_player = (is_human) => {
     return {
         type: CONSTANTS.COMPUTER_OR_HUMAN_PLAYER,
@@ -18,12 +12,6 @@ export const select_signal_option = (player = "player", selected_symbol) => {
         type: CONSTANTS.SELECT_SIGNAL_OPTION,
         player,
         selected_symbol
-    }
-};
-
-export const reveal_selected_signal_options = () => {
-    return {
-        type: CONSTANTS.REVEAL_SELECTED_SIGNAL_OPTIONS
     }
 };
 

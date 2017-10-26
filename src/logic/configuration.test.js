@@ -1,15 +1,15 @@
-import { initialState } from './reducer';
+import reducer, { initialState } from './reducer';
 import * as action from './actions';
 import * as configuration from './configuration';
 import _ from 'lodash';
 
-const data_drive_ruleset = (ruleset, action) => {
-  _.each(ruleset, (unit_test) => {
+const data_drive_method = (configuration, action) => {
+  _.each(configuration, (unit_test) => {
     it(unit_test.description, () => {
       // Set
       const mockState = initialState;
       const mockAction = action;
-      const mockReducer = rules;
+      const mockReducer = reducer;
 
       // Act
       const result = mockReducer(mockState, mockAction);
@@ -20,9 +20,9 @@ const data_drive_ruleset = (ruleset, action) => {
   });
 };
 
-describe('Rock paper scissors rules reducer', () => {
+describe('Configuration', () => {
 
-  const data_drive_rock_paper_scissors = [
+  const data_drive_configuration = [
     {
       description: 'Should bootstrap game with default rules.',
       key: 'ruleset',
@@ -45,5 +45,5 @@ describe('Rock paper scissors rules reducer', () => {
     }
   ];
 
-  data_drive_ruleset(data_drive_rock_paper_scissors);
+  data_drive_method(data_drive_configuration);
 });
