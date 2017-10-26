@@ -4,7 +4,7 @@ import calculation from './calculation';
 import * as configuration from './configuration';
 import { get_random_symbol } from './computer';
 
-export const initialState = {
+export const initial_state = {
     ruleset: configuration.rock_paper_scissors,
     player: {
       score: 0,
@@ -22,7 +22,7 @@ export const initialState = {
     game_outcome: undefined,
 };
 
-const reducers = (state = initialState, action) => {
+const reducers = (state = initial_state, action) => {
   switch (_.get(action, 'type', undefined)) {
 
     case CONSTANTS.COMPUTER_OR_HUMAN_PLAYER:
