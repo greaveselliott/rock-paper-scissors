@@ -1,4 +1,4 @@
-import reducer, { initialState } from './reducer';
+import reducer, { initial_state } from './reducer';
 import * as action from './actions';
 import * as configuration from './configuration';
 import _ from 'lodash';
@@ -7,7 +7,7 @@ const data_drive_method = (configuration, action) => {
   _.each(configuration, (unit_test) => {
     it(unit_test.description, () => {
       // Set
-      const mockState = initialState;
+      const mockState = initial_state;
       const mockAction = action;
       const mockReducer = reducer;
 

@@ -6,10 +6,10 @@ const composeEnhancers =
     window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) ||
   compose;
 
-const configureStore = (initialState = {}) => {
+const configureStore = (initial_state = {}) => {
   return createStore(
     createReducer(),
-    initialState,
+    initial_state,
     composeEnhancers(
       applyMiddleware()
     )

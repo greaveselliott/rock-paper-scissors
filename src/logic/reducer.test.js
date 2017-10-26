@@ -1,4 +1,4 @@
-import reducer, { initialState } from './reducer';
+import reducer, { initial_state } from './reducer';
 import * as actions from './actions';
 import _ from 'lodash';
 
@@ -32,12 +32,12 @@ describe('Reducer', () => {
         }
 
         const initial_state_factory = () => {
-          return initialState;
+          return initial_state;
         }
 
         // Arrange
         let mockReducer = reducer;
-        let mockStore = mockReducer(initialState, undefined);
+        let mockStore = mockReducer(initial_state, undefined);
 
         _.each(unit_test.action_sequence, (step) => {
           // Arranging
@@ -199,7 +199,7 @@ describe('Reducer', () => {
             action: actions.increment_player_Score,
             action_parameters: ['player'],
             expected_state: {
-              // It would seem the store isn't resetting to the InitialState after
+              // It would seem the store isn't resetting to the initial_state after
               // each loop interation. I've incremented the values to reflect this.
               // Look into this later...
               player: {
