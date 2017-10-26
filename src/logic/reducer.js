@@ -38,7 +38,7 @@ const reducers = (state = initial_state, action) => {
       return { 
         ..._.merge(state,{
           [action.player]: {
-            selected_symbol: action.selected_symbol || state[action.player].is_human !== null ? action.selected_symbol : get_random_symbol(state.ruleset)     
+            selected_symbol: action.selected_symbol || state[action.player].is_human ? action.selected_symbol : get_random_symbol(state.ruleset)     
           }
         })
       };
