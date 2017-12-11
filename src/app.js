@@ -11,10 +11,16 @@ import Modernizr from 'modernizr';
 const store = configureStore();
 
 class App extends Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {loaded: false};
+  }
+
   render() {
     return (
       <Provider store={store}>
-          <div className="app">
+          <div className={`app ${this.state.loaded  && 'app-loaded'}`}>
             <aside className="app__sidebar">
               <ScoreBoard/>
             </aside>
@@ -26,6 +32,12 @@ class App extends Component {
           </div>
       </Provider>
     );
+  }
+
+  componentDidMount() {
+    this.setState({
+        loaded: true
+    });
   }
 }
 

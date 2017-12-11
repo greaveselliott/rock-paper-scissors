@@ -1,5 +1,6 @@
 {
-  "name": "q-go-assessment",
+  "name": "rock-paper-scissors",
+  "author": "Elliott Greaves",
   "version": "1.0.0",
   "private": true,
   "dependencies": {
@@ -52,6 +53,9 @@
     "whatwg-fetch": "2.0.3"
   },
   "devDependencies": {
+    "intern": "^3.3.1",
+    "intern-visual": "^0.1.2",
+    "requirejs": "^2.3.5",
     "node-sass": "^4.5.3",
     "postcss-loader": "^2.0.6",
     "redux-devtools-dispatch": "^2.2.1",
@@ -61,7 +65,8 @@
   "scripts": {
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
-    "test": "node scripts/test.js --env=jsdom"
+    "test": "node scripts/test.js --env=jsdom",
+    "test-visual-regression": "intern-runner config=visual-regression-tests/intern"
   },
   "jest": {
     "collectCoverageFrom": [

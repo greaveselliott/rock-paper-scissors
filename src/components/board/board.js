@@ -19,7 +19,6 @@ const Board = ({className, active, hand_signals, selected_player_symbol, selecte
                     has_won={!outcome}
                 />
             </div>
-            
             <div className="l-board__notification-area">
                 <div className={`l-board__select-symbol${enter_exit_modifier(is_revealing)}`}><Heading title="Select a symbol."/></div>
                 <div className={`l-board__outcome${enter_exit_modifier(is_revealing === false)}`}>
