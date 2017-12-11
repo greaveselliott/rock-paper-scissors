@@ -27,10 +27,6 @@ describe('Reducer', () => {
     _.each(data_drive_configuration, (unit_test) => {
       it(unit_test.description, () => {
 
-        if (unit_test.description !== "Should reveal contestents selected symbols.") {
-         // return;
-        }
-
         const initial_state_factory = () => {
           return initial_state;
         }
