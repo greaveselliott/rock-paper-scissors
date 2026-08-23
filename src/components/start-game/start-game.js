@@ -13,7 +13,7 @@ export const StartGame = ({className, active, on_start_game}) => {
             <div className="ie-center">
                 <div className="ie-center__inner">
                     <Logo/>
-                    <Heading title="Pick mode."/>
+                    <Heading title="Choose your game."/>
                     <ButtonToggleMode/>
                     <Button click_handler={on_start_game} modifier="--large" text="Start"/>
                 </div>

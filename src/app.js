@@ -6,7 +6,7 @@ import ScoreBoard from './components/score-board';
 import StartGame from './components/start-game';
 import Board from './components/board';
 import AI from './components/ai';
-import Modernizr from 'modernizr';
+import 'modernizr';
 
 const store = configureStore();
 

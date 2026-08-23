@@ -6,14 +6,14 @@ import './score-board.scss';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
-export const ScoreBoard = ({opponent_score, player_score}) => {
+export const ScoreBoard = ({opponent_score, player_score, opponent_name, player_name}) => {
     return (
             <div className="o-score-board">
                 <section className="o-score-board__contestent--opponent">
-                    <Avatar image={ImageOpponent} name="Opponent" score={opponent_score}/>
+                    <Avatar image={ImageOpponent} name={opponent_name} score={opponent_score}/>
                 </section>
                 <section className="o-score-board__contestent--player">
-                    <Avatar image={ImagePlayer} name="Player" score={player_score}/>
+                    <Avatar image={ImagePlayer} name={player_name} score={player_score}/>
                 </section>
             </div>
     );
@@ -27,7 +27,9 @@ Avatar.propTypes = {
 const mapStateToProps = state => {
     return { 
         player_score: state.store.player.score,
-        opponent_score: state.store.opponent.score 
+        opponent_score: state.store.opponent.score,
+        opponent_name: state.store.player.is_human ? `Computer ${state.store.opponent.rating}` : 'Computer 2',
+        player_name: state.store.player.is_human ? 'Player' : 'Computer 1'
     };
 };
 

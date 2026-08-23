@@ -1,9 +1,16 @@
 import * as CONSTANTS from './constants';
 
-export const computer_or_human_player = (is_human) => {
+export const computer_or_human_player = (is_human = true) => {
     return {
         type: CONSTANTS.COMPUTER_OR_HUMAN_PLAYER,
         is_human
+    }
+};
+
+export const set_computer_rating = (rating) => {
+    return {
+        type: CONSTANTS.SET_COMPUTER_RATING,
+        rating
     }
 };
 

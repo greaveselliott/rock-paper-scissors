@@ -5,6 +5,7 @@ export const OUTCOME_DRAW = 'draw';
 export const OUTCOME_LOSE = 'lose';
 
 export const COMPUTER_OR_HUMAN_PLAYER = 'COMPUTER_OR_HUMAN_PLAYER';
+export const SET_COMPUTER_RATING = 'SET_COMPUTER_RATING';
 export const SELECT_SIGNAL_OPTION = 'SELECT_SIGNAL_OPTION';
 export const START_GAME = 'START_GAME';
 export const RESTART_GAME = 'RESTART_GAME';

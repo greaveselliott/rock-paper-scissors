@@ -37,6 +37,8 @@
   &__main {
     display: block;
     height: 100%;
+    overflow: hidden;
+    overflow: clip;
     width: 100%;
     margin-left: auto;
     margin-right: auto;

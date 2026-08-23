@@ -4,17 +4,21 @@ import Button from '../button';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { computer_or_human_player } from '../../logic/actions';
+import ComputerDifficulty from '../computer-difficulty';
 
 
 const ButtonToggleMode = ({ is_human, on_toggle_human, on_toggle_computer }) => {
     return (
-        <div className="m-button-toggle-mode">
-            <div className="m-button-toggle-mode__column">
-                <Button click_handler={on_toggle_human} text="Human VS Computer" modifier={is_human ? "--toggled" : "--not-toggled"}/>
+        <div>
+            <div className="m-button-toggle-mode" role="group" aria-label="Game mode">
+                <div className="m-button-toggle-mode__column">
+                    <Button click_handler={on_toggle_human} text="Play VS Computer" modifier={is_human ? "--toggled" : "--not-toggled"}/>
+                </div>
+                <div className="m-button-toggle-mode__column">
+                    <Button click_handler={on_toggle_computer} text="Watch Computers" modifier={is_human ? "--not-toggled" : "--toggled"}/>
+                </div>
             </div>
-            <div className="m-button-toggle-mode__column">
-                <Button click_handler={on_toggle_computer} text="Computer VS Computer" modifier={is_human ? "--not-toggled" : "--toggled"}/>
-            </div>
+            {is_human && <ComputerDifficulty/>}
         </div>
     )
 }

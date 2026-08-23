@@ -195,14 +195,11 @@ describe('Reducer', () => {
             action: actions.increment_player_Score,
             action_parameters: ['player'],
             expected_state: {
-              // It would seem the store isn't resetting to the initial_state after
-              // each loop interation. I've incremented the values to reflect this.
-              // Look into this later...
               player: {
-                score: 3
+                score: 1
               },
               opponent: {
-                score: 2
+                score: 0
               }
             }
           }
@@ -340,4 +337,31 @@ describe('Reducer', () => {
 ];
 
   data_drive_method(data_drive_configuration);
+
+  it('Should change the computer rating and reset the match.', () => {
+    const in_progress_state = {
+      ...initial_state,
+      player: {...initial_state.player, score: 3},
+      opponent: {...initial_state.opponent, score: 5},
+      round_history: [{player: 'rock', opponent: 'paper', outcome: 'lose'}]
+    };
+
+    const state = reducer(in_progress_state, actions.set_computer_rating(2800));
+
+    expect(state.opponent.rating).toBe(2800);
+    expect(state.player.score).toBe(0);
+    expect(state.opponent.score).toBe(0);
+    expect(state.round_history).toEqual([]);
+  });
+
+  it('Should retain round history when starting another round.', () => {
+    let state = reducer(initial_state, actions.select_signal_option('player', 'rock'));
+    state = reducer(state, actions.select_signal_option('opponent', 'scissors'));
+    state = reducer(state, actions.decide_winner());
+    state = reducer(state, actions.restart_game());
+
+    expect(state.round_history).toEqual([
+      {player: 'rock', opponent: 'scissors', outcome: 'win'}
+    ]);
+  });
 });

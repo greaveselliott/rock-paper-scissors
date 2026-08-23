@@ -47,3 +47,10 @@ describe('Configuration', () => {
 
   data_drive_method(data_drive_configuration);
 });
+
+describe('Computer difficulty configuration', () => {
+  it('Should cover ratings from 400 to 2800 in even steps.', () => {
+    expect(configuration.computer_difficulties.map((difficulty) => difficulty.rating))
+      .toEqual([400, 800, 1200, 1600, 2000, 2400, 2800]);
+  });
+});
