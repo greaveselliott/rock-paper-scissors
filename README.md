@@ -6,6 +6,11 @@ compete.
 
 Release: [v1.1.0](https://github.com/greaveselliott/rock-paper-scissors/releases/tag/v1.1.0)
 
+> [!CAUTION]
+> This is a historical portfolio codebase with a 2017 dependency tree and
+> known security advisories. It is not suitable for deployment. Run it only in
+> an isolated local environment until the frontend toolchain is modernized.
+
 ## Features
 
 - Standard Rock Paper Scissors and a Rock Paper Scissors Lizard Spock ruleset
