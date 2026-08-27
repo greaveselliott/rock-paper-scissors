@@ -1,10 +1,48 @@
-# rock-paper-scissors
+# Rock Paper Scissors
 
-Play Rock Paper Scissors against an adaptive computer rated from 400 to 2800, or watch two computer players compete. Higher-rated opponents use more of your recent move and sequence history when choosing a counter; beginner opponents make deliberate mistakes so each level feels distinct.
+An adaptive browser game built with React. Play against a rated computer from
+400 to 2800, or switch to computer-versus-computer mode and watch both sides
+compete.
 
-Run project locally
-[1] npm install
-[2] npm run start
+Release: [v1.1.0](https://github.com/greaveselliott/rock-paper-scissors/releases/tag/v1.1.0)
 
-Run tests - more coverage to come!
-[1] npm run test -- --coverage
+## Features
+
+- Standard Rock Paper Scissors and a Rock Paper Scissors Lizard Spock ruleset
+- Human-versus-computer and computer-versus-computer modes
+- Seven difficulty levels, from Beginner (400) to Grandmaster (2800)
+- A responsive difficulty control with accessible labels and descriptions
+- Unit coverage for game rules, state transitions, and deterministic computer
+  choices
+
+## How the computer adapts
+
+The opponent analyses the latest 20 player moves. It scores recurring choices,
+weights recent moves more heavily, and looks at which move usually follows the
+player's last choice. It then either counters the prediction, chooses randomly,
+or makes a deliberate mistake.
+
+The rating controls that mix: prediction probability rises from 8% at 400 to
+92% at 2800, while the two lowest levels include an additional blunder chance.
+The random source is injectable so the decision logic can be tested
+deterministically.
+
+## Run locally
+
+```bash
+npm install
+npm start
+```
+
+The UI uses a historical React 15 and Webpack 3 toolchain. Current Node.js
+releases may require dependency modernization before the application builds.
+
+## Test
+
+```bash
+npm test -- --coverage
+```
+
+## License
+
+[MIT](LICENSE)
