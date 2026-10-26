@@ -16,7 +16,7 @@
     "css-loader": "0.28.4",
     "dotenv": "4.0.0",
     "enzyme": "2.9.1",
-    "eslint": "4.4.1",
+    "eslint": "10.9.1",
     "eslint-config-react-app": "^2.0.0",
     "eslint-loader": "1.9.0",
     "eslint-plugin-flowtype": "2.35.0",
@@ -38,7 +38,7 @@
     "promise": "8.0.1",
     "prop-types": "15.5.10",
     "react": "15.6.1",
-    "react-dev-utils": "^4.0.1",
+    "react-dev-utils": "^12.0.1",
     "react-dom": "15.6.1",
     "react-redux": "5.0.6",
     "react-test-renderer": "15.6.1",
@@ -47,7 +47,7 @@
     "style-loader": "0.18.2",
     "sw-precache-webpack-plugin": "0.11.4",
     "url-loader": "0.5.9",
-    "webpack": "3.5.1",
+    "webpack": "5.109.2",
     "webpack-dev-server": "2.7.1",
     "webpack-manifest-plugin": "1.2.1",
     "whatwg-fetch": "2.0.3"
@@ -56,11 +56,11 @@
     "intern": "^3.3.1",
     "intern-visual": "^0.1.2",
     "requirejs": "^2.3.5",
-    "node-sass": "^4.5.3",
+    "node-sass": "^9.0.0",
     "postcss-loader": "^2.0.6",
     "redux-devtools-dispatch": "^2.2.1",
     "sass-loader": "^6.0.6",
-    "webpack": "^3.8.1"
+    "webpack": "^5.109.2"
   },
   "scripts": {
     "start": "node scripts/start.js",
